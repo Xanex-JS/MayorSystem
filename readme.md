@@ -29,3 +29,5 @@ Please note if you wish to use DiscordPermissions you MUST keep the resource nam
 Due to me enabling escrow there's no way around this.
 
 # Pushed to github
+
+Github testing really
