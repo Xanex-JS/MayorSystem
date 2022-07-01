@@ -27,3 +27,5 @@ Config.PermissionSys = 'Discord' -- This will use Discord Roles which requires B
 Please note if you wish to use DiscordPermissions you MUST keep the resource name as MayorSystem otherwise the discord api will NOT work.
 
 Due to me enabling escrow there's no way around this.
+
+# Pushed to github
