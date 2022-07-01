@@ -38,11 +38,12 @@ end)
 -- Announce Command
 
 RegisterCommand(Config.Announce, function(source, args)
+  local message = table.concat(args, " ")
 
     if Config.UsePerms == 1 then
     if Config.PermissionSys == "Discord" then
     if isMayor then -- Check the source's permissions
-    TriggerServerEvent("mayorannounce", table.concat(args, " "))
+    TriggerServerEvent("mayorannounce", message)
     else
             sendMsg("^1You're not the mayor :/")
     end

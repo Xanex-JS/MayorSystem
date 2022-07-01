@@ -28,7 +28,8 @@ RegisterCommand(Config.Command, function(source, args)
               if isLockdown == true then
                       Lockdown = true
                       isLockdown = true
-                      TriggerServerEvent("Server:SoundToAll", "demo", 1.0);
+                      -- TriggerServerEvent("Server:SoundToAll", "demo", 1.0);
+                      TriggerServerEvent("LoggingLockdown")
                       sendMsg("~g~Lockdown has been activiated")
                     elseif isAllowedToUseLockdown and not isLockdown then
                       Lockdown = false

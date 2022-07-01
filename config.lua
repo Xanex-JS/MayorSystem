@@ -10,9 +10,13 @@
 Config = {}
 Config.ALERT = {}
 
+-- Discord Logs
+
+Config.DiscordLogs = true -- If you want to use discord logs or Announcement
+Config.Webhook = "https://discordapp.com/api/webhooks/992470687904174182/h43GF4K-qYdFaFTCzAyu89hci5rbGtf3CWcNUNgBNWBPSm8R36ymNiBQJxRRp6rl8MoC" -- Your webhook URL
+
 -- Xanex's Mayor Resource Configuration
-Config.webhookURL = "" -- Post your webhook here, although if you don't want webhook simply keep this blank.
-Config.UsePerms = 2 -- 1 = Use Perms. 2 = Don't use Perms (Everyone can then use the commands)
+Config.UsePerms = 1 -- 1 = Use Perms. 2 = Don't use Perms (Everyone can then use the commands)
 Config.PermissionSys = 'Discord' -- Discord = Use Discord Roles -- Ace == Ace Permissions -- CASE SENSITIVE
 
 -- Mayor Lockdown Config

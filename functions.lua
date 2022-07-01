@@ -36,6 +36,8 @@ function Draw2DText(x, y, text, scale)
     DrawText(x, y)
 end
 
+-- Discord Send messageEntered
+
 --  Send Message Functions (Makes life easier really)
 
 function sendMsg(src, msg)
