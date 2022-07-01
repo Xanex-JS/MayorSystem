@@ -28,6 +28,8 @@ Please note if you wish to use DiscordPermissions you MUST keep the resource nam
 
 Due to me enabling escrow there's no way around this.
 
-# Pushed to github
+# Discord Logging
 
-Github testing really
+If you don't want discord loggin change DiscordLogs to false in the config.lua
+
+Replaced Config.Webhook = "CHANGEME" to your webhook link

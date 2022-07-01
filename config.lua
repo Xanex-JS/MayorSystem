@@ -13,7 +13,7 @@ Config.ALERT = {}
 -- Discord Logs
 
 Config.DiscordLogs = true -- If you want to use discord logs or Announcement
-Config.Webhook = "https://discordapp.com/api/webhooks/992470687904174182/h43GF4K-qYdFaFTCzAyu89hci5rbGtf3CWcNUNgBNWBPSm8R36ymNiBQJxRRp6rl8MoC" -- Your webhook URL
+Config.Webhook = "" -- Your webhook URL
 
 -- Xanex's Mayor Resource Configuration
 Config.UsePerms = 1 -- 1 = Use Perms. 2 = Don't use Perms (Everyone can then use the commands)
