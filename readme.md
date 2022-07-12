@@ -28,6 +28,8 @@ Please note if you wish to use DiscordPermissions you MUST keep the resource nam
 
 Due to me enabling escrow there's no way around this.
 
+Some Configuration options are detailed in the Config.lua if you wish to modify it some more.
+
 # Discord Logging
 
 If you don't want discord loggin change DiscordLogs to false in the config.lua
