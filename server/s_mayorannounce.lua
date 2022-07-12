@@ -6,7 +6,7 @@
 
 ]]
 
---  Lockdown send to Discord
+--  Registering the event from client to server to send logs to the discord server.
 
 RegisterServerEvent("LoggingLockdown")
 AddEventHandler("LoggingLockdown", function()
@@ -29,6 +29,9 @@ AddEventHandler("mayorannounce", function(param, reason)
       TriggerClientEvent("chatMessage", -1, "^1[Mayor Announcement]^2", {0,0,0}, param)
   end
 end)
+
+
+-- Sending Logs to discord
 
 function sendToDiscord(color, name, message, footer)
      -- local name = GetPlayerName(source)

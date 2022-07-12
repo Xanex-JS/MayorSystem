@@ -5,10 +5,6 @@
     Insperation: This script was inspired by the lockdown system on Garry's Mod DarkRP
 
 ]]
-
--- Discord checks if they have permissions to use the lockdown command
-
-
 --  Values Don't Touch
 local isLockdown = false
 local Lockdown = false
@@ -19,10 +15,10 @@ local ActiveLockdown = false
 RegisterCommand(Config.Command, function(source, args)
   local Ped = GetPlayerPed(-1)
   local name = GetPlayerName(-1)
-  --  Lockdown Checking
       isLockdown = not isLockdown
 
-      -- Permission checking for Discord Permissions.
+      -- If Discord Permissions are being used we will run the below code.
+
       if Config.PermissionSys == "Discord" and Config.UsePerms == 1 then
             if isAllowedToUseLockdown then
               if isLockdown == true then
@@ -41,7 +37,7 @@ RegisterCommand(Config.Command, function(source, args)
         end
 end
 
-  -- Ace Permission Checks
+  -- if ACE Permissions are being used the below code will be ran
 
       if Config.PermissionSys == "Ace" and Config.UsePerms == 1 then
             if isAllowedToUseLockdownAce then
@@ -61,7 +57,6 @@ end
 
     -- If Permissions have been disabled we will run the code below
 
-    -- if you have disabled perms the below code will be used
     elseif Config.UsePerms == 2 then
         if isLockdown == true then
           Lockdown = true
@@ -78,6 +73,7 @@ end
                 args = {"Goverment", "State Lockdown has been lifted by the mayors office.", -1}
               })
             end
+
 end
 end)
 
