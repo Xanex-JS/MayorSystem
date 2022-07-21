@@ -29,6 +29,8 @@ client_scripts {
 	'client/mlockdown_c.lua' -- Mayor Lockdown
 }
 
+lua54 'yes'
+
 escrow_ignore {
 	'config.lua',
 	'readme.md'

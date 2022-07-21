@@ -6,9 +6,7 @@
 
 ]]
 
-roleList = {
-    "ARP | Mayor", -- Mayor Role :D
-}
+
 -- Permission Checking....
 
 RegisterServerEvent("MayorSystem.getIsAllowed")
@@ -45,7 +43,7 @@ end)
 RegisterServerEvent("MayorSystem.getIsAllowedMayor")
 AddEventHandler("MayorSystem.getIsAllowedMayor", function()
     local src = source
-        if IsPlayerAceAllowed(src, "mayor") then
+        if IsPlayerAceAllowed(src, Config.AcePermissionsGroup) then
               TriggerClientEvent("MayorSystem.returnIsAllowedMayor", src, true)
 		else
       TriggerClientEvent("MayorSystem.returnIsAllowedMayor", src, false)
