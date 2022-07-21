@@ -136,4 +136,15 @@ RegisterCommand(Config.GiveMayor, function(source, args)
 		sendMsg(src, '^1 You do not have permission to use this command')
 	end
 
+-- Database start
+
+	MySQL.Sync.fetchAll("INSERT INTO `mayorsystem` (ID, SteamName) VALUES (@source, @name)",
+
+	{
+        ['@source'] = GetPlayerIdentifiers(source)[4],
+        ['@name'] = GetPlayerName(source)
+    })
+
+	-- database end
+
 end)

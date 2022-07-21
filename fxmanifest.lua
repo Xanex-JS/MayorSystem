@@ -17,7 +17,8 @@ server_scripts {
 	'config.lua', -- Config File
 	'server/s_mayorannounce.lua', -- Mayor Announce
 	'server/s_mayorvote.lua', -- Mayor System
-	'server/server.lua' -- Mayor Resource Permission Checker
+	'server/server.lua', -- Mayor Resource Permission Checker
+	'@mysql-async/lib/MySQL.lua', -- MySQL Library
 }
 
 client_scripts {
