@@ -1,8 +1,9 @@
 USE `fivem`;
 
 CREATE TABLE `mayorsystem` (
-    `ID` VARCHAR(50) NULL DEFAULT NULL,
-    `SteamName` VARCHAR(50) NULL DEFAULT NULL
+    `DatabaseID` VARCHAR(50) NULL DEFAULT NULL,
+    `DiscordUID` VARCHAR(50) NULL DEFAULT NULL,
+    `FiveMName` VARCHAR(50) NULL DEFAULT NULL
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB;

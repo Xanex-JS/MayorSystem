@@ -6,26 +6,27 @@
 
 ]]
 --  Values Don't Touch
-
 local isLockdown = false
 local Lockdown = false
+local isAllowedToUseLockdown = false
+local isAllowedToUseLockdownAce = false
 local ActiveLockdown = false
 
-local QBCore = exports['qb-core']:GetCoreObject()
-
-RegisterNetEvent('MayorQBCore')
-AddEventHandler('MayorQBCore', function()
+RegisterNetEvent('MayoQBCore')
+AddEventHandler('MayoQBCore', function()
 
     isLockdown = not isLockdown
 
+    print("MayorSystem Resource")
+
+    -- If Discord Permissions are being used we will run the below code.
             if isLockdown == true then
                     Lockdown = true
                     isLockdown = true
                     -- TriggerServerEvent("Server:SoundToAll", "demo", 1.0);
                     TriggerServerEvent("LoggingLockdown")
                     sendMsg("~g~Lockdown has been activiated")
-                    TriggerEvent('mayorlockdown:server:loadbar')
-                  elseif not isLockdown then
+                  elseif isAllowedToUseLockdown and not isLockdown then
                     Lockdown = false
                     isLockdown = false
                     sendMsg("~g~Lockdown has been lifted")
@@ -82,4 +83,12 @@ function CurrentlyLockdown()
     else
     return false
     end
+end
+
+function MayorLockdDownExport()
+    TriggerClientEvent('MayorQBCore', -1)
+end
+
+function MayorSystemAnnouncement()
+    TriggerClientEvent('MayorQBCoreAnnouncement', -1)
 end

@@ -36,6 +36,9 @@ roleList = {
     "ARP | Mayor", -- Mayor Role :D
 }
 
+Config.EAS = {}
+Config.EAS.Volume = 0.2 --(0.2 = 20% Volume)
+
 -- Ace Permissions
 
 Config.AcePermissionsGroup = 'mayor' -- This is the mayor group name if using ACE Permissions if you're using discord permission just ignore this

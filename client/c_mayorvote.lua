@@ -5,3 +5,9 @@
     Insperation: This script was inspired by the lockdown system on Garry's Mod DarkRP
 
 ]]
+
+------------------ Mayor System Voting Stuff ----------------
+
+
+
+------------------ Mayor System Voting Stuff ----------------
