@@ -42,9 +42,9 @@ Citizen.CreateThread(function()
 		Wait(0);
 		local Ped = GetPlayerPed(-1);
 		if CurrentlyLockdown() then
-			Draw2DText(0.090, 0.672, "The Mayor has initiated a lockdown.", 0.5, 1);
-			Draw2DText(0.110, 0.700, "If You're found outside you will be arrested.", 0.5, 1);
-            Draw2DText(0.102, 0.732, "All Residents are urged to remain inside.", 0.5, 1);
+			Draw3DText(0.090, 0.672, "The Mayor has initiated a lockdown.", 0.5, 1);
+			Draw3DText(0.110, 0.700, "If You're found outside you will be arrested.", 0.5, 1);
+            Draw3DText(0.102, 0.732, "All Residents are urged to remain inside.", 0.5, 1);
         end
     end
 end)
@@ -66,7 +66,7 @@ function Draw2DText(x, y, text, scale)
     SetTextProportional(7)
     SetTextScale(scale, scale)
     local rainbow = RGBRainbow( 1 )
-		SetTextColour( rainbow.r, rainbow.g, rainbow.b, 255 )
+	SetTextColour( rainbow.r, rainbow.g, rainbow.b, 255 )
     SetTextDropShadow(0, 0, 0, 0,255)
     SetTextDropShadow()
     SetTextEdge(4, 0, 0, 0, 255)

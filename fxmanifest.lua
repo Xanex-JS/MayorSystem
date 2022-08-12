@@ -14,8 +14,8 @@ description 'AussieDropBears Mayor System'
 version '1.0.0'
 
 server_scripts {
-	'server/mayor_events_item.lua', -- Mayor Consume ETC 
-	'qbcore_mayor/s_nui.lua', -- Mayor Announce GUI
+	'server/misc.lua', -- Mayor Consume ETC 
+	'server/s_nui.lua', -- Mayor Announce GUI
 	'config.lua', -- Config File
 	'server/s_mayorannounce.lua', -- Mayor Announce
 	'server/mlockdown_s.lua', -- Mayor Lockdown
@@ -27,7 +27,7 @@ server_scripts {
 client_scripts {
 	'client/mayor_menu.lua', -- Mayor menu
 	'config.lua', -- Config File
-	'qbcore_mayor/c_nui.lua', -- Mayor Announce GUI
+	'client/c_nui.lua', -- Mayor Announce GUI
 	'client/c_mayorvote.lua', -- Vote for a mayor
 	'client/lockdown.lua', -- Lockdown permission check
 	'functions.lua', -- Leave me alone
@@ -45,19 +45,19 @@ escrow_ignore {
 }
 
 ui_page {
-	'qbcore_mayor/index.html'
+	'GUI_Files/index.html'
   }
   
   files {
-	'qbcore_mayor/index.html',
+	'GUI_Files/index.html',
   
-	'qbcore_mayor/main.css',
+	'GUI_Files/main.css',
   
-	'qbcore_mayor/main.js',
+	'GUI_Files/main.js',
   
 	'fonts/VCR_OSD_MONO.ttf',
   
-	'qbcore_mayor/alert.mp3'
+	'GUI_Files/alert.mp3'
   }
   
 server_export 'SendAlertToDisplay'

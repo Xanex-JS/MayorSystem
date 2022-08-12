@@ -1,37 +1,52 @@
-# AussieDropBear's Mayor Lockdown and Announce
+# AussieDropBear MayorSystem
 
-Drag and Drop ``MayorSystem`` to your resources folder, then add ``ensure MayorSystem`` to your server.cfg or resources.cfg
+# Installtion 
 
-# Permissions
+1. Drag and drop `MayorSystem_QBCore`, add `ensure MayorSystem_QBCore` to your server.cfg or resources.cfg-- This must stay this name.
+2. Add the jobs to your jobs.lua in qb-core/shared/jobs.lua
+3. Add the item below to your qb-core/shared/items.lua
+4. Execute the mayorsystem.sql to your database as a query
+5. config the config file to suit your needs.
+6. Bobs ya uncle.
 
-Make sure to add these permissions to your server.cfg or permissions.cfg.
+# PS
 
-add_ace group.mayor mayor allow
+Commands: ``/checkvotes`` -- lets you check the votes otherwise use the ped.
+'Consume' the laptop to open the mayor dedicated menu 
 
+# Notes
 
-If you don't have a ``group.mayor`` ace permission simply change it to the ace permission your mayor has.
+https://discord.gg/dJbZHS4r -- Join My discord if you need support.
+This system only works with QBCore!!!!!
 
-# Dependencies
+# QB-CORE Add
 
-This does require Badger_Discord_API for the permissions for Discord. if you somehow don't want to use Badger_Discord_API then change the value in the config. from Discord to Ace.
+qb-core/shared/jobs.lua
+        ['mayor'] = {
+		label = 'Mayors Workers',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+            ['0'] = {
+                name = 'Mayor Secruity',
+                payment = 100
+            },
+            ['1'] = {
+                name = 'Mayor Bodyguard',
+                payment = 150
+            },
+            ['2'] = {
+                name = 'Mayors Assistant',
+                payment = 200
+            },
+            ['3'] = {
+                name = 'Mayor',
+                isboss = true,
+                payment = 350
+            },
+        },
+	},
 
-# Configuration
+qb-core/shared/items.lua
 
-If for some reason you want everyone to use this resource then change Config.UsePerms to false
-
-Config.PermissionSys = 'Ace' -- This will use Ace permissions as the permission restriction
-Config.PermissionSys = 'Discord' -- This will use Discord Roles which requires Badger_Discord_API.
-
-# Important
-
-Please note if you wish to use DiscordPermissions you MUST keep the resource name as MayorSystem otherwise the discord api will NOT work.
-
-Due to me enabling escrow there's no way around this. that iknow of, please contact me on discord if there's a way and i will implement it.
-
-The Config.Lua will show more options you can enable/disable
-
-# Discord Logging
-
-If you don't want discord loggin change DiscordLogs to false in the config.lua
-
-Replaced Config.Webhook = "CHANGEME" to your webhook link
+ ["mayorsystem"] 					 = {["name"] = "mayorsystem", 			  			["label"] = "Mayor Laptop", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "laptop.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "This Laptop does unspeakable things :/ :3"},

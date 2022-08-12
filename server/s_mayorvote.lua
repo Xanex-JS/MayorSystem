@@ -6,78 +6,74 @@
 
 ]]
 ------------------ Mayor System Voting Stuff ----------------
+local QBCore = exports['qb-core']:GetCoreObject()
 
+-- end of spawn ped
 
+-- get count to multiply
 
------------------- Mayor System Voting Stuff ----------------
-
-
------------------- Mayor System ----------------
-RegisterCommand(Config.GiveMayor, function(source, args)
-	local src = source
-
-	local messageContent = "\n- New Mayor: " .. GetPlayerName(args[1]) .. ""
+RegisterNetEvent('qb-mayor:vote:save:database')
+AddEventHandler('qb-mayor:vote:save:database', function(Canidate1)
+	local count = '0'
 
 	local discord = ""
 	local id = ""
 
-	identifiers = GetNumPlayerIdentifiers(source)
+	identifiers = GetNumPlayerIdentifiers(Canidate1)
 	for i = 0, identifiers + 1 do
-		if GetPlayerIdentifier(source, i) ~= nil then
-			if string.match(GetPlayerIdentifier(source, i), "discord") then
-				discord = GetPlayerIdentifier(source, i)
+		if GetPlayerIdentifier(Canidate1, i) ~= nil then
+			if string.match(GetPlayerIdentifier(Canidate1, i), "discord") then
+				discord = GetPlayerIdentifier(Canidate1, i)
 				id = string.sub(discord, 9, -1)
 			end
 		end
 	end
 
-		if #args < 1 then
-			sendMsg(src, '^3 You need to specify a serverID')
-		end
+	MySQL.Sync.fetchAll("INSERT INTO `mayorvote` (Votecount, CharacterName, DiscordUID) VALUES (@count, @Canidate1, @DiscordUID)",
 
-		if #args > 0 then
+	{
+		['@count'] = count,
+		['@Canidate1'] = GetPlayerName(Canidate1),
+		['@DiscordUID'] = "<@" .. id .. ">"
+	})
 
-			-- Lets run some code to get their UID and advertise who the new mayor is
-
-			sendMsg(-1, '^3 ' .. GetPlayerName(src) .. ' Has Made ' .. GetPlayerName(args[1]) .. ' The New Mayor')
-			TriggerClientEvent('chatMessage', src, Config.prefix .. '^3' .. GetPlayerName(args[1]) .. ' DiscordUID: ' .. id)	
-
-			-- Lets alert the new mayor aswell
-
-			TriggerClientEvent('chatMessage', args[1], Config.prefix .. '^3 You have been made the new Mayor')
-
-			--  lets alert discord 
-
-			sendToDiscord(16753920, "MayorSystem" .. "" .. messageContent)
-
-		end
-
--- Database start
-
-	-- database end
-
-    local src = source
-    for k, v in ipairs(GetPlayerIdentifiers(src)) do
-        if string.sub(v, 1, string.len("discord:")) == "discord:" then
-            identifierDiscord = v
-        end
-    end
+end)
+RegisterNetEvent('qb-menu:vote:menu:server:input', function(data)
+	 MySQL.Sync.fetchAll("UPDATE mayorvote SET voteCount = voteCount + 1 WHERE CharacterName = @CharacterName",
+	 {
+		 ['@CharacterName'] = data.voted
+	 })
 	
-    if identifierDiscord then
+end)
 
-		MySQL.Sync.fetchAll("INSERT INTO `mayorsystem` (DiscordUID, FiveMName) VALUES (@source, @name)",
+QBCore.Functions.CreateCallback('CheckCandidates', function(result, cb)
+	local result = MySQL.Sync.fetchAll('SELECT * FROM mayorvote')
+		print("[QBCore Mayor] Server Callback Database Check")
+			cb(result)
+end)
 
-		{
-			['@source'] = "<@"..id .. ">",
-			['@name'] = GetPlayerName(source)
-		})
-		
-			print("Discord UID Found")
+------------------ Mayor System Voting Stuff ----------------
 
-		else
+QBCore.Commands.Add('checkvote', 'Check votes for a mayor canidate', {}, false, function(source)
 
-            print('No Discord UID found')
+	-- Lets fetch from the database and use them arguments
 
-		end
+    local result = MySQL.Sync.fetchAll('SELECT * FROM mayorvote')
+    
+    local menu = {
+        {
+            header = "Candidates",
+            isMenuHeader = true
+        }
+    }
+
+    for k, v in pairs(result) do
+        menu[#menu+1] = {
+            header = v.CharacterName,
+            txt = 'Votes: '..v.Votecount,
+        }
+    end
+
+    TriggerClientEvent('qb-menu:client:openMenu', source, menu)
 
 end)
