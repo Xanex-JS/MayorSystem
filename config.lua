@@ -26,6 +26,6 @@ Config.EAS.Volume = 0.2 --(0.2 = 20% Volume)
 Config.Peds = {
     {
         type = 'votingped',
-        position = vector4(418.07, -986.28, 28.40, 88.59)
+        position = vector4(419.17, -987.34, 29.37, 87.8)
     },
 }

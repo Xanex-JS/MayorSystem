@@ -29,7 +29,6 @@ client_scripts {
 	'config.lua', -- Config File
 	'client/c_nui.lua', -- Mayor Announce GUI
 	'client/c_mayorvote.lua', -- Vote for a mayor
-	'client/lockdown.lua', -- Lockdown permission check
 	'functions.lua', -- Leave me alone
 	'client/c_mayorannounce.lua', -- Mayor Announce
 	'client/mlockdown_c.lua' -- Mayor Lockdown

@@ -6,6 +6,7 @@
 
 ]]
 --  Values Don't Touch
+--[[
 local isLockdown = false
 local Lockdown = false
 local isAllowedToUseLockdown = false
@@ -84,6 +85,7 @@ function CurrentlyLockdown()
     return false
     end
 end
+everything above is useless but it's there incase ]]
 
 function MayorLockdDownExport()
     TriggerClientEvent('MayorQBCore', -1)

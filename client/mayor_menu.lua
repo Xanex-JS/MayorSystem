@@ -67,13 +67,22 @@ RegisterNetEvent('qb-mayor:misc:main', function()
     local Mayormiscmain = {
         {
             isMenuHeader = true,
-            header = "Mayor Voting"
+            header = "Mayor Announcement"
         },
         {
-            header = "Open Vote Menu",
+            header = "Open Voting Menu",
             txt = "This opens up the voting menu",
             params = {
                 event = 'qb-mayor:vote:main',
+            }
+        },
+        {
+            header = "Panic Button",
+            txt = "Alert police you're in distress",
+            -- disabled = true,
+            params = {
+                event = 'qb-mayor:server:mdistress',
+                isServer = true,
             }
         }
     }

@@ -17,7 +17,6 @@ local HasVote = false
 
 RegisterNetEvent('qb-mayor:vote:spawn:ped')
 AddEventHandler('qb-mayor:vote:spawn:ped', function()
-    print("Made PED")
 
     RequestModel( GetHashKey( "a_m_m_bevhills_02" ) )
     while ( not HasModelLoaded( GetHashKey( "a_m_m_bevhills_02" ) ) ) do
